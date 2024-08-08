@@ -21,11 +21,17 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set cmdheight=0")
+
+vim.opt.guicursor = ""
+vim.opt.expandtab = true
+vim.opt.tabstop=2
+vim.opt.softtabstop=2
+vim.opt.shiftwidth=2
+vim.opt.cmdheight=0
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
