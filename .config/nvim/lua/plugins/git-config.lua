@@ -8,6 +8,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		config = true,
+		vim.keymap.set("n", "<leader>g", "<cmd>Neogit<CR>"),
 	},
 	{
 		"lewis6991/gitsigns.nvim",
