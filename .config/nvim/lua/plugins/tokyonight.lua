@@ -20,6 +20,7 @@ return {
 			}
 			hl.TelescopePromptNormal = {
 				bg = prompt,
+				fg = prompt,
 			}
 			hl.TelescopePromptBorder = {
 				bg = prompt,
