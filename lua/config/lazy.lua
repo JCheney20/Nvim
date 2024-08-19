@@ -22,16 +22,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.opt.guicursor = ""
-vim.opt.expandtab = true
-vim.opt.tabstop=2
-vim.opt.softtabstop=2
-vim.opt.shiftwidth=2
-vim.opt.cmdheight=0
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
-
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
