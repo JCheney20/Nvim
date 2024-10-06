@@ -1,5 +1,12 @@
 return {
   {
+    "nvim-java/nvim-java",
+    config = function()
+      require("java").setup()
+      require("lspconfig").jdtls.setup({})
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
@@ -25,10 +32,15 @@ return {
         callback = function(event)
           local opts = { buffer = event.buf }
 
-          vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts)
+          vim.keymap.set(
+            "n",
+            "<leader>gd",
+            require("telescope.builtin").lsp_definitions,
+            { desc = "[G]et [D]efinition" }
+          )
           vim.keymap.set("n", "K", function()
             vim.lsp.buf.hover()
-          end, opts)
+          end, { desc = "[K]ode Hover" })
           vim.keymap.set("n", "<leader>vws", function()
             vim.lsp.buf.workspace_symbol()
           end, opts)
@@ -38,18 +50,20 @@ return {
           vim.keymap.set("n", "<leader>vca", function()
             vim.lsp.buf.code_action()
           end, opts)
-          vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
-          vim.keymap.set("n", "<leader>vrn", function()
+          vim.keymap.set(
+            "n",
+            "gr",
+            require("telescope.builtin").lsp_references,
+            { desc = "[G]et [R]eference" }
+          )
+          vim.keymap.set("n", "<leader>rn", function()
             vim.lsp.buf.rename()
-          end, opts)
+          end, { desc = "[R]e[N]ame Code" })
           vim.keymap.set("i", "<C-h>", function()
             vim.lsp.buf.signature_help()
           end, opts)
         end,
       })
     end,
-  },
-  {
-    "mfussenegger/nvim-jdtls",
   },
 }
